@@ -12,6 +12,7 @@ You're building an admin dashboard for Vidinfra's CDN management platform. Users
 Your task is to create a responsive data table component that fetches and displays CDN distributions with proper pagination, filtering, and sorting capabilities.
 
 ---
+**Design Reference**: [Figma Design](https://www.figma.com/design/7BATDXvcws9kJ1ghQcw9qX/Design-Task?node-id=15704-58520&t=5ODh14VS1hJFDR2r-1)
 
 ## 🛠 Tech Stack
 
