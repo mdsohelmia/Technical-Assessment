@@ -21,7 +21,7 @@ Your task is to create a responsive data table component that fetches and displa
 * **@tanstack/react-query** for data fetching
 * **@tanstack/react-table** for table functionality
 * **shadcn/ui** for UI components
-* **nuqs** (optional) for URL state management
+* **nuqs**  for URL state management
 
 ---
 
