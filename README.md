@@ -1,4 +1,4 @@
-# 🧪 Senior Frontend Engineer — Technical Assessment
+# 🧪 Frontend Engineer — Technical Assessment
 
 **Deadline**: 2 days  
 **Mode**: Submit code via GitHub repository
@@ -63,31 +63,101 @@ Your task is to create a responsive data table component that fetches and displa
 
 ## 📡 API Information
 
-**Base URL**: `https://api.vidinfra.com/cdn`
+**Base URL**: `https://api-staging.tenbyte.io/cdn`
 
-**Endpoint**: `GET /v1/distributions`
+**Endpoint**: `GET /distributions`
 
-### Example Requests
+## Endpoint
 
-```bash
-# Basic pagination
-GET /v1/distributions?page=1&limit=10
+    GET /v1/distributions
 
-# With filters
-GET /v1/distributions?page=1&limit=10&filter[cname][like]=example&filter[status][eq]=active
+------------------------------------------------------------------------
 
-# With sorting
-GET /v1/distributions?page=1&limit=10&sort=-created_at
-```
-### Filter Operators
+## Query Parameters
 
-| Operator | Description | Example |
-|----------|-------------|---------|
-| `eq` | Equals | `filter[status][eq]=active` |
-| `like` | Contains (case insensitive) | `filter[cname][like]=example` |
-| `between` | Date/number range | `filter[created_at][between]=2024-01-01,2024-12-31` |
+### 📑 Pagination
 
----
+  ----------------------------------------------------------------------------
+  Parameter   Type     Description
+  ----------- -------- -------------------------------------------------------
+  `page`      number   Page number (default: 1)
+
+  `limit`     number   Number of items per page (default: 15, min: 1, max: 50)
+  ----------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+### 🔍 Filtering
+
+You can filter by the following fields:
+
+-   `id`
+-   `name`
+-   `cname`
+-   `domain`
+-   `status`
+-   `domain_type`
+-   `cache_strategy`
+-   `organization_id`
+-   `certificate_id`
+-   `enable_ssl`
+-   `is_redirect_http_to_https`
+-   `is_http2`
+-   `is_http3`
+-   `is_cname_valid`
+-   `is_acme_challenge_valid`
+-   `le_issue`
+-   `created_at`
+-   `updated_at`
+
+#### Operators
+
+  Operator        Description
+  --------------- ------------------------------------------
+  `eq`            Equals
+  `ne`            Not equals
+  `like`          Contains (case insensitive)
+  `not-like`      Does not contain
+  `starts-with`   Starts with
+  `ends-with`     Ends with
+  `gt`            Greater than
+  `gte`           Greater than or equal
+  `lt`            Less than
+  `lte`           Less than or equal
+  `in`            In list (comma-separated)
+  `not-in`        Not in list
+  `null`          Is null
+  `not-null`      Is not null
+  `between`       Between two values (comma-separated)
+  `not-between`   Not between two values (comma-separated)
+
+#### Example Filters
+
+    filter[name][starts-with]=cdn-
+    filter[status][in]=active,disabled
+    filter[enable_ssl][eq]=true
+    filter[created_at][between]=2025-01-01,2025-08-01
+
+------------------------------------------------------------------------
+
+### ↕ Sorting
+
+  ---------------------------------------------------------------------------
+  Parameter   Description
+  ----------- ---------------------------------------------------------------
+  `sort`      Sort fields. Prefix with `-` for descending. Allowed:
+              `created_at`, `updated_at`, `name`, `status`, `domain_type`,
+              `cache_strategy`, `domain`, `cname`
+
+  ---------------------------------------------------------------------------
+
+#### Example Sorts
+
+    sort=-created_at
+    sort=name
+    sort=-created_at,name
+
+------------------------------------------------------------------------
 
 ## 🚀 Getting Started
 
